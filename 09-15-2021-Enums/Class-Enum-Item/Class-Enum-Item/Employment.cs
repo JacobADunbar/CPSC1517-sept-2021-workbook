@@ -26,6 +26,7 @@ namespace Class_Enum_Item.Data
         //normally this declaration is a private access type
         //one does not want an outside user to directly interact with the variable
         private string _Title;
+        private double _Years;
 
         //Properties
         //These are access techniques to retrieve or set data in your class without directly touching the storage data field
@@ -60,10 +61,22 @@ namespace Class_Enum_Item.Data
                 }
             }
         }
-
+        //Auto-Implemented Properties
+        //
+        // these properties different only in syntax
+        // each property is responsible for a single piece of data
+        // these properties do NOT reference a declared private data member of their class
+        // instead the system generates an internal storage area of the return data type
+        // The system manages the internal storage for the accessor and mutator
+        // There is NO additional logic applied to the data value
+        //
         //using an enum to declare a variable
         public SupervisoryLevel Level { get; set; }
 
-        public double Years { get; set; }
+        public double Years
+        {
+            get { return _Years; }
+            set { _Years = value; }
+        }
     }
 }
