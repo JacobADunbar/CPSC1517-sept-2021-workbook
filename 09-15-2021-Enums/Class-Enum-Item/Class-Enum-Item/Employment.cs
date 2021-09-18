@@ -71,7 +71,9 @@ namespace Class_Enum_Item.Data
         // There is NO additional logic applied to the data value
         //
         //using an enum to declare a variable
-        public SupervisoryLevel Level { get; set; }
+        //this property is using a private set which means that the Level property will only allow an outside user (Program) to access the associated value
+        //The private set must eaither be done in the constructor or a behavior of the class
+        public SupervisoryLevel Level { get; private set; }
 
         //The property Years could be coded as either a fully implemented property (as shown) or as an auto-implemented property
         public double Years
@@ -84,7 +86,54 @@ namespace Class_Enum_Item.Data
         //is to initialize the created instance (physical object) of the class (conceptual definition)
         //constuctor(s) are optional
         //if your class definition has no constructor coded, then the data members / auto-implemented properties are set to the C# default data type value
-        // you can code one or more constructors in your class definition
         //
+        //you can code one or more constructors in your class definition
+        //IF YOU CODE A CONSTRUCTOR FOR THE CLASS, YOU ARE RESPONSIBLE FOR ALL CONSTRUCTORS USED BY THE CLASS!
+        //
+        //generally, if you are going to code your own constructor(s), you code 2 types
+        //  Default : this constructor does NOT take in any values: it mimics the default system constructor
+        //  Greedie: This constructor has a list of parameters, one for each property, declare for incoming data
+        //
+        // Syntax : accesstype classname([list of parameters]) { constructor code body }
+        //
+        // Default constructor
+        public Employment()
+        {
+            //constructor body
+            //you could assign literal values to your properties within the constructor
+            Level = SupervisoryLevel.Entry; //0
+            Title = "Unkown";
+        }
+
+        //Greedie constructor
+        public Employment(string title, SupervisoryLevel level, double years) 
+        {
+            Title = title;
+            Level = level;
+            Years = years;
+        }
+
+        //Behaviours (aka methods)
+        //Behaviours are no different than methods elsewhere
+        //
+        //syntax: accesstype returndatatype BehaviourName([list of parameteres (optional)]) { code body }
+        //
+        //This class has a private set for the level property
+        //The set for the level property can be done in either a constructor or behaviour
+        //this is an example of placing data into the level property outside of a constructor
+        
+        public void SetEmployeeResponsibility(SupervisoryLevel level)
+        {
+            //maybe you might need to do some type of logical processing to assign the value to the property with the private set
+            Level = level;
+        }
+
+        //there maybe times you wish to obtain all the data in your instance all at once for display
+        //generally to accomplish this, your class ovverides the .ToString() method for classes
+        public override string ToString()
+        {
+            //in this example, return the data values in a comma seperated value string
+            return $"{Title},{Level},{Years}";
+        }
     }
 }
