@@ -73,10 +73,18 @@ namespace Class_Enum_Item.Data
         //using an enum to declare a variable
         public SupervisoryLevel Level { get; set; }
 
+        //The property Years could be coded as either a fully implemented property (as shown) or as an auto-implemented property
         public double Years
         {
             get { return _Years; }
             set { _Years = value; }
         }
+
+        //Constructors
+        //is to initialize the created instance (physical object) of the class (conceptual definition)
+        //constuctor(s) are optional
+        //if your class definition has no constructor coded, then the data members / auto-implemented properties are set to the C# default data type value
+        // you can code one or more constructors in your class definition
+        //
     }
 }
