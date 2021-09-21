@@ -10,7 +10,7 @@ namespace Class_Enum_Item.Data
     public enum SupervisoryLevel
     {
         Entry,           // = 0
-        Level2,          // = 1
+        TeamMember,          // = 1
         TeamLeader,      // = 2
         Supervisor,      // = 3
         DepartmentHead,  // = 4
