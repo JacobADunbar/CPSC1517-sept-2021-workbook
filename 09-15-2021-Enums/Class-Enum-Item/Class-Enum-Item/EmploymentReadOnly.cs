@@ -12,6 +12,11 @@ namespace Class_Enum_Item.Data
         public readonly SupervisoryLevel Level;
         public readonly double Years;
 
+        //in a read only class scenario, you will not likely find any property that will allow internal data to be altered
+        //you may find behaviours that will allow changes to the data, remembering that internal logic can make changes
+        //however, you still may have properties in your calss definition BUT they consist of only get components in the property
+
+
         //because your data is read only, you need to have a pathway for data to come into the class instance
 
         //one: use a greeddy constructor
