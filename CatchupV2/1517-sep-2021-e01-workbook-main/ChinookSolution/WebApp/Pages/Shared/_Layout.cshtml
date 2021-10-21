@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebApp</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/holiday.css@0.9.8" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a asp-area="" asp-page="/Index">
+                        <img src="~/img/ChinookMusicMenuLogo.jpg" alt="logo image"
+                             title="go to Home" />
+                    </a>
+                </li>
+                <li>
+                    <a asp-area="" asp-page="/Index">Home</a>
+                </li>
+                @* this is the structure for a submenu (drop down menu) *@
+                <li>
+                    <span>Samples</span>
+                    <ul>
+                        <li>
+                            <a asp-area="" asp-page="/BasicDataMovement">Basics</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-page="/QueryArtist">Artist Query</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a asp-area="" asp-page="/Privacy">Privacy</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+            &copy; 2021 - Don Welch NAIT CPSC1517 All rights reserved - <a asp-area="" asp-page="/Privacy">Privacy</a>
+    </footer>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

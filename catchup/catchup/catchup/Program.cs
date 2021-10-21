@@ -238,6 +238,7 @@ namespace PracticeConsole
                 EmploymentPositions = jobs
             };
 
+
             //display the contents of Person
             Console.WriteLine("Person:\n");
             Console.WriteLine($"{me.LastName}, {me.FirstName} \n");
