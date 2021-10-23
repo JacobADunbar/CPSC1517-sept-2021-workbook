@@ -21,6 +21,9 @@ namespace WebApp.Pages
         [BindProperty(SupportsGet=true)]
         public int? id { get; set; }
 
+        [BindProperty]
+        public string selection { get; set; }
+
 
         //contructors
 
@@ -84,7 +87,7 @@ namespace WebApp.Pages
         {
             Thread.Sleep(1000);
             //string buttonValue = Request.Form["theButton"];
-            FeedbackMessage = $"You pressed the B button, input was {id}";
+            FeedbackMessage = $"You pressed the B button, input was {selection}";
             //The RedirectToPage() will cause the OnGet to execute
             return RedirectToPage(new { id = id });
         }
